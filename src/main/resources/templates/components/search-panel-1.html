@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div th:fragment="search-panel">
+    <form class="d-flex" action="search.html" th:attr="action=@{/search}">
+        <div class="input-group mb-3">
+            <input name="query" type="text" class="form-control" placeholder="Search for a title" aria-label="Search book"
+                   aria-describedby="Search">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
