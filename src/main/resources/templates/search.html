@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Book details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div th:insert="components/nav-bar-with-search :: nav-bar"></div>
+<div class="container">
+    <section class="content">
+        <p>Number of books found:
+            <small th:text="${bookResults.size()}"></small>
+        </p>
+
+        <div class="card-deck row">
+            <div class="col-sm-4" style="width: 18rem; margin: 30px;" th:each="bookResult: ${bookResults}">
+                <div class="card">
+                    <img th:src="${bookResult.cover_i}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${bookResult.title}">Card title</h5>
+<!--                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--                            card's content.</p>-->
+                        <a th:href="@{'/books/' + ${bookResult.key}}" class="btn btn-primary">View book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
